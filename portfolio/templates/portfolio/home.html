@@ -1,0 +1,57 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+  <section class="jumbotron text-center">
+
+ <div class="container">
+
+   <h1 class="jumbotron-heading">Hi, I'm Bakhtiyar.</h1>
+
+   <p class="lead text-muted">Hey, my name is Bakhtiyar Khayrullev and I love to make python applications.</p>
+
+   <p>
+
+     <a href="mailto:x.bakhtiyar888@gmail.com" class="btn btn-primary my-2">Email Me</a>
+
+   </p>
+
+   <img src="{% static 'portfolio/photo_2017-06-01_08-06-34.jpg' %}" height=500 width=500>
+   <!--<br>
+   <a href="{% static 'portfolio/Резюме_Хайруллаев_Бахтияр_Алимжанович.doc'%}">Resume</a>
+   <br>-->
+ </div>
+
+</section>
+
+
+    <div class="album py-5 bg-light">
+            <div class="container">
+                    <div class="row">
+
+                    {% for project in projects %}
+                                <div class="col-md-4">
+                                      <div class="card mb-4 box-shadow">
+                                          <img class="card-img-top" src="{{ project.image.url }}" height="250" width="500"/>
+                                          <div class="card-body">
+                                          <p class="card-text">{{ project.title }}</p>
+
+
+                                            {% if project.url %}
+                                            <br><a href="{{ project.url }}">Link</a>
+                                            {% endif %}
+
+                                        </div>
+                                      </div>
+                                </div>
+                                {% endfor %}
+                    </div>
+            </div>
+    </div>
+
+
+
+
+{% endblock %}
